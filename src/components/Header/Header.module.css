@@ -1,9 +1,13 @@
 .header {
+    position: fixed;
+    top: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     background-color: #31815c;
-    width: 100%;
+    width: calc(100% - 350px);
     height: 64px;
+    z-index: 100;
 }
 
 .headerLeft {

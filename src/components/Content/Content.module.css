@@ -1,8 +1,7 @@
 .content {
     position: relative;
     min-height: calc(100vh - 64px);
-    max-width: 960px;
-    margin: auto;
     padding: 18px 4vw;
     background-color: #eeeef7;
+    margin: 64px 0 0 350px;
 }

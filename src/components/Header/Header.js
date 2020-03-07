@@ -1,7 +1,5 @@
 import React from "react";
 
-import Button from "react-bootstrap/Button";
-
 import classes from "./Header.module.css";
 
 const Header = props => {
