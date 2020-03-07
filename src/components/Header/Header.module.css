@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #31815c;
+    width: 100%;
+    height: 64px;
+}
+
+.headerLeft {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.headerBrand {
+    margin: auto 0;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.role {
+    color: white;
+    margin: 0;
+}
+
+.headerSeparator {
+    height: 50%;
+    width: 1px;
+    background-color: #000000;
+    margin: auto 1rem;
+}
+
+.logOutButton {
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    padding: 0.2rem 0;
+    margin: auto 0;
+    width: 6rem;
+    color: #ffffff;
+    background-color: #d9534f;
+}
