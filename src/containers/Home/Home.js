@@ -5,6 +5,12 @@ import Card from "react-bootstrap/Card";
 import classes from "./Home.module.css";
 
 class Home extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {};
+    }
+
     render() {
         return (
             <React.Fragment>
