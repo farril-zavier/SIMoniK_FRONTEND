@@ -71,7 +71,7 @@ class Produk extends Component {
                 <td>{row.Perusahaan}</td>
                 <td>{row.Kategori}</td>
                 <td>
-                    <Button href="/produk/tambah" variant="primary">
+                    <Button href="/produk/detail" variant="primary">
                         Lihat Detail
                     </Button>
                 </td>
