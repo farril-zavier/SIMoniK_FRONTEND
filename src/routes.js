@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home/Home";
+import UnggahSO from "./containers/FieldOfficer/UnggahSO/UnggahSO";
 import StockOpname from "./containers/DataEngineer/StockOpname/StockOpname";
 import DaftarAkun from "./containers/Admin/DaftarAkun/DaftarAkun";
 import Produk from "./containers/DataEngineer/Produk/Produk";
@@ -10,6 +11,7 @@ import DetailProduk from "./containers/DataEngineer/Produk/DetailProduk";
 const Routes = () => (
     <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/unggah-so" component={UnggahSO} />
 
         {/* DataEngineer */}
         <Route exact path="/stock" component={StockOpname} />

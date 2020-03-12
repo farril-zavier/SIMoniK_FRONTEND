@@ -1,0 +1,25 @@
+.content > div {
+    margin: 2rem 0;
+}
+
+.modalHeader {
+    border-bottom: none !important;
+    z-index: 1060;
+}
+
+.title {
+    margin: 0 !important;
+}
+
+.contohSO {
+    width: 100%;
+    height: auto;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.3;
+    margin: 1rem 0;
+}
