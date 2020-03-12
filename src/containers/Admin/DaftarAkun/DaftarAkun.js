@@ -90,6 +90,7 @@ class DaftarAkun extends Component {
                     <Card>
                         <Card.Body>
                             <Card.Title>Akun</Card.Title>
+                            <div className={classes.divider}></div>
                             <Card.Text>
                                 <p> Cari Berdasarkan: </p>
                                 <Form inline>
@@ -101,7 +102,7 @@ class DaftarAkun extends Component {
                                     </DropdownButton> */}
 
                                     <Form.Control as="select">
-                                        <option>Pilih Role</option>
+                                        <option>--Pilih Role--</option>
                                         <option>Field Officer</option>
                                         <option>
                                             Area Manager Field Officer
