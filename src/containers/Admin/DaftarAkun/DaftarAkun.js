@@ -4,8 +4,10 @@ import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from 'react-bootstrap/Dropdown'
-import Form from 'react-bootstrap/Form'
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 import classes from "./DaftarAkun.module.css";
 
@@ -19,65 +21,71 @@ class DaftarAkun extends Component {
     render() {
         const data = [
             {
-                "Id": 1,
-                "No": 1,
-                "Nama": "Asep",
-                "Role": "Business Development",
-                "Username": "asep.sat"
+                Id: 1,
+                No: 1,
+                Nama: "Asep",
+                Role: "Business Development",
+                Username: "asep.sat"
             },
             {
-                "Id": 1,
-                "No": 2,
-                "Nama": "Asep",
-                "Role": "Business Development",
-                "Username": "asep.sat"
+                Id: 1,
+                No: 2,
+                Nama: "Asep",
+                Role: "Business Development",
+                Username: "asep.sat"
             },
             {
-                "Id": 1,
-                "No": 3,
-                "Nama": "Asep",
-                "Role": "Business Development",
-                "Username": "asep.sat"
+                Id: 1,
+                No: 3,
+                Nama: "Asep",
+                Role: "Business Development",
+                Username: "asep.sat"
             },
             {
-                "Id": 1,
-                "No": 4,
-                "Nama": "Asep",
-                "Role": "Business Development",
-                "Username": "asep.sat"
+                Id: 1,
+                No: 4,
+                Nama: "Asep",
+                Role: "Business Development",
+                Username: "asep.sat"
             },
             {
-                "Id": 1,
-                "No": 5,
-                "Nama": "Asep",
-                "Role": "Business Development",
-                "Username": "asep.sat"
+                Id: 1,
+                No: 5,
+                Nama: "Asep",
+                Role: "Business Development",
+                Username: "asep.sat"
             },
             {
-                "Id": 1,
-                "No": 6,
-                "Nama": "Asep",
-                "Role": "Business Development",
-                "Username": "asep.sat"
+                Id: 1,
+                No: 6,
+                Nama: "Asep",
+                Role: "Business Development",
+                Username: "asep.sat"
             }
-        ]
-        const rows = data.map(row =>
+        ];
+        const rows = data.map(row => (
             <tr>
                 <td>{row.No + ""}</td>
                 <td>{row.Nama}</td>
                 <td>{row.Role}</td>
                 <td>{row.Username}</td>
-                <td><Button href={"delete/" + row.Id} variant="danger">Hapus</Button></td>
+                <td>
+                    <Button href={"delete/" + row.Id} variant="danger">
+                        Hapus
+                    </Button>
+                </td>
             </tr>
-        )
+        ));
         return (
             <React.Fragment>
                 <Content>
                     <Card>
-                        <Card.Body>
-                            <Card.Title>Daftar Akun</Card.Title>
-                            <Card.Text></Card.Text>
-                        </Card.Body>
+                        <Breadcrumb>
+                            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/daftarAkun">
+                                Daftar Akun
+                            </Breadcrumb.Item>
+                        </Breadcrumb>
                     </Card>
                     <Card>
                         <Card.Body>
@@ -85,15 +93,26 @@ class DaftarAkun extends Component {
                             <Card.Text>
                                 <p> Cari Berdasarkan: </p>
                                 <Form inline>
-                                    <DropdownButton className="mr-sm-2" variant="secondary" id="dropdown-basic-button" title="Cari Role">
-                                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                    </DropdownButton>
+                                    {/* <DropdownButton className="mr-sm-2" variant="secondary" id="dropdown-basic-button" title="Cari Role">
+                                        <Dropdown.Item href="#/action-1">Field Officer</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2">Area Manager Field Officer</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-3">Data Engineer</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-3">Business Development</Dropdown.Item>
+                                    </DropdownButton> */}
+
+                                    <Form.Control as="select">
+                                        <option>Pilih Role</option>
+                                        <option>Field Officer</option>
+                                        <option>
+                                            Area Manager Field Officer
+                                        </option>
+                                        <option>Data Engineer</option>
+                                        <option>Business Development</option>
+                                    </Form.Control>
                                     <Button href="search">Cari</Button>
                                 </Form>
 
-
+                                <br></br>
                                 <p> Semua Akun </p>
                                 <Table striped bordered hover>
                                     <thead>
@@ -105,9 +124,7 @@ class DaftarAkun extends Component {
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        {rows}
-                                    </tbody>
+                                    <tbody>{rows}</tbody>
                                 </Table>
                             </Card.Text>
                         </Card.Body>
