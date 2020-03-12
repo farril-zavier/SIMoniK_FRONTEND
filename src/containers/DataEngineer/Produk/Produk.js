@@ -79,30 +79,33 @@ class Produk extends Component {
         ));
         return (
             <React.Fragment>
-                <Content>
+                <Content className={classes.content}>
                     <Breadcrumb>
                         <Breadcrumb.Item href="/produk">Produk</Breadcrumb.Item>
                     </Breadcrumb>
                     <Card>
                         <Card.Body>
-                            <Card.Title>Produk</Card.Title>
+                            <Card.Title className={classes.title}>
+                                Produk
+                            </Card.Title>
                         </Card.Body>
                     </Card>
-                    <Card>
-                        <Card.Body>
-                            <Button
-                                href="/produk/tambah"
-                                variant="outline-primary"
-                            >
-                                + Tambah Produk
-                            </Button>
-                        </Card.Body>
-                    </Card>
+
                     <Card>
                         <Card.Body>
                             <Card.Text>
+                                <h4>Produk</h4>
+                                <div className={classes.divider}></div>
+                                <Button
+                                    href="/produk/tambah"
+                                    variant="outline-primary"
+                                >
+                                    + Tambah Produk
+                                </Button>
+                                <div className={classes.divider}></div>
+
                                 <br></br>
-                                <p> Semua Produk</p>
+                                <h5> Semua Produk</h5>
                                 <Table bordered hover>
                                     <thead>
                                         <tr>

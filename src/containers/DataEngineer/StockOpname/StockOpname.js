@@ -77,7 +77,7 @@ class StockOpname extends Component {
         ));
         return (
             <React.Fragment>
-                <Content>
+                <Content className={classes.content}>
                     <div className={classes.breadcrumbbg}>
                         <Breadcrumb>
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
@@ -89,12 +89,16 @@ class StockOpname extends Component {
                     </div>
                     <Card>
                         <Card.Body>
-                            <Card.Title>Stock Opname</Card.Title>
+                            <Card.Title className={classes.title}>
+                                Stock Opname
+                            </Card.Title>
                         </Card.Body>
                     </Card>
                     <Card>
                         <Card.Body>
                             <Card.Text>
+                                <h4>Stock Opname</h4>
+                                <div className={classes.divider}></div>
                                 <p>Cari Berdasarkan</p>
                                 <Form>
                                     {/*                                 

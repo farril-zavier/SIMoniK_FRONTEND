@@ -10,6 +10,7 @@ import Form, { FormRow } from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
 import classes from "./TambahProduk.module.css";
+
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
@@ -23,7 +24,7 @@ class TambahProduk extends Component {
     render() {
         return (
             <React.Fragment>
-                <Content>
+                <Content className={classes.content}>
                     <Breadcrumb>
                         <Breadcrumb.Item href="/produk">Produk</Breadcrumb.Item>
                         <Breadcrumb.Item href="#">
@@ -32,13 +33,17 @@ class TambahProduk extends Component {
                     </Breadcrumb>
                     <Card>
                         <Card.Body>
-                            <Card.Title>Tambah Produk</Card.Title>
+                            <Card.Title className={classes.title}>
+                                Tambah Produk
+                            </Card.Title>
                         </Card.Body>
                     </Card>
 
                     <Card>
                         <Card.Body>
                             <Card.Text>
+                                <h4>Tambah Produk</h4>
+                                <div className={classes.divider}></div>
                                 <br></br>
                                 <Form>
                                     <Form.Group

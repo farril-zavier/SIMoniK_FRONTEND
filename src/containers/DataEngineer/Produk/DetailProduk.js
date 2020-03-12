@@ -25,20 +25,24 @@ class DetailProduk extends Component {
     render() {
         return (
             <React.Fragment>
-                <Content>
+                <Content className={classes.content}>
                     <Breadcrumb>
                         <Breadcrumb.Item href="/produk">Produk</Breadcrumb.Item>
                         <Breadcrumb.Item href="#">Sankill</Breadcrumb.Item>
                     </Breadcrumb>
                     <Card>
                         <Card.Body>
-                            <Card.Title>Produk</Card.Title>
+                            <Card.Title className={classes.title}>
+                                Produk
+                            </Card.Title>
                         </Card.Body>
                     </Card>
 
                     <Card>
                         <Card.Body>
                             <Card.Text>
+                                <h4>Produk</h4>
+                                <div className={classes.divider}></div>
                                 <Card.Title>Sankill</Card.Title>
                                 <br></br>
                                 <Container>
@@ -94,25 +98,41 @@ class DetailProduk extends Component {
                                             Danger
                                         </Button>
                                     </ButtonToolbar> */}
-                                    <ButtonToolbar>
-                                        <Button
-                                            id="buttonbiru"
-                                            size="lg"
-                                            md={{ span: 6, offset: 3 }}
-                                            variant="primary"
-                                            inline
-                                        >
-                                            Ubah Rincian
-                                        </Button>
-                                        <Button
-                                            size="lg"
-                                            md={{ span: 6, offset: 3 }}
-                                            variant="danger"
-                                            inline
-                                        >
-                                            Hapus Produk
-                                        </Button>
-                                    </ButtonToolbar>
+                                    <Row>
+                                        <Col sm="3"></Col>
+                                        <Col sm="6">
+                                            <ButtonToolbar>
+                                                <Col sm="6">
+                                                    <Button
+                                                        id="buttonbiru"
+                                                        size="lg"
+                                                        md={{
+                                                            span: 6,
+                                                            offset: 3
+                                                        }}
+                                                        variant="primary"
+                                                        inline
+                                                    >
+                                                        Ubah Rincian
+                                                    </Button>
+                                                </Col>
+                                                <Col sm="6">
+                                                    <Button
+                                                        size="lg"
+                                                        md={{
+                                                            span: 6,
+                                                            offset: 3
+                                                        }}
+                                                        variant="danger"
+                                                        inline
+                                                    >
+                                                        Hapus Produk
+                                                    </Button>
+                                                </Col>
+                                            </ButtonToolbar>
+                                        </Col>
+                                        <Col sm="3"></Col>
+                                    </Row>
                                 </Container>
                             </Card.Text>
                         </Card.Body>
