@@ -21,48 +21,12 @@ class DaftarAkun extends Component {
     render() {
         const data = [
             {
-                Id: 1,
-                No: 1,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 2,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 3,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 4,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 5,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 6,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
+                username: "bimba",
+                name: "bimba",
+                role: 1
             }
         ];
+        const dataDenganNomor = data; //TODO: Tambabhin angka. i=1. For each data, tambahin no: i. i++
         const rows = data.map(row => (
             <tr>
                 <td>{row.No + ""}</td>
@@ -70,6 +34,7 @@ class DaftarAkun extends Component {
                 <td>{row.Role}</td>
                 <td>{row.Username}</td>
                 <td>
+                    {/* TODO: Bikin fungsi utk delete */}
                     <Button href={"delete/" + row.Id} variant="danger">
                         Hapus
                     </Button>
