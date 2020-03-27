@@ -8,6 +8,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Modal from "react-bootstrap/Modal";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 import classes from "./BuatAkun.module.css";
@@ -16,74 +17,54 @@ class BuatAkun extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            modalShow: false,
+            success: null
+        };
     }
 
+    modalShowHandler = () => {
+        this.setState({
+            modalShow: true
+        });
+    };
+
+    modalCloseHandler = () => {
+        this.setState({
+            modalShow: false
+        });
+    };
+
+    handleSubmit = event => {
+        event.preventDefault();
+    };
+
     render() {
-        const data = [
-            {
-                Id: 1,
-                No: 1,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 2,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 3,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 4,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 5,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            },
-            {
-                Id: 1,
-                No: 6,
-                Nama: "Asep",
-                Role: "Business Development",
-                Username: "asep.sat"
-            }
-        ];
-        const rows = data.map(row => (
-            <tr>
-                <td>{row.No + ""}</td>
-                <td>{row.Nama}</td>
-                <td>{row.Role}</td>
-                <td>{row.Username}</td>
-                <td>
-                    <Button href={"delete/" + row.Id} variant="danger">
-                        Hapus
-                    </Button>
-                </td>
-            </tr>
-        ));
+        
         return (
             <React.Fragment>
                 <Content>
                     <Card>
+                        <Modal centered show={this.state.modalShow} onHide={this.modalCloseHandler}>
+                            <Modal.Header closeButton className={classes.modalHeader}></Modal.Header>
+                            <Modal.Body className="mt-n5">
+                                <Row className="justify-content-center mb-3 mt-4">
+                                    Akun berhasil dibuat!
+                                </Row>
+                            </Modal.Body>
+                        </Modal>
+                        <Modal centered show={this.state.modalShow} onHide={this.modalCloseHandler}>
+                            <Modal.Header closeButton className={classes.modalHeader}></Modal.Header>
+                            <Modal.Body className="mt-n5">
+                                <Row className="justify-content-center mb-3 mt-4">
+                                    Akun gagal dibuat!
+                                </Row>
+                            </Modal.Body>
+                        </Modal>
+
                         <Breadcrumb>
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/buatAkun">
+                            <Breadcrumb.Item href="/buat-akun">
                                 Buat Akun
                             </Breadcrumb.Item>
                         </Breadcrumb>
@@ -92,7 +73,7 @@ class BuatAkun extends Component {
                         <Card.Body>
                             <Card.Title>Akun Baru</Card.Title>
                             <div className={classes.divider}></div>
-                            <Form>
+                            <Form onSubmit={this.handleSubmit}>
                                 <Form.Group as={Row} controlId="formUsername">
                                     <Form.Label column sm="2">
                                         Username*:
