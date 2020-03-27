@@ -8,6 +8,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import Modal from "react-bootstrap/Modal";
+import Row from "react-bootstrap/Row";
 
 import classes from "./DaftarAkun.module.css";
 
@@ -15,27 +17,47 @@ class DaftarAkun extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            modalShow: false
+        };
     }
+
+    modalShowHandler = () => {
+        this.setState({
+            modalShow: true
+        });
+    };
+
+    modalCloseHandler = () => {
+        this.setState({
+            modalShow: false
+        });
+    };
+
+    delete = () => null;
 
     render() {
         const data = [
             {
-                username: "bimba",
-                name: "bimba",
-                role: 1
+                Username: "bimba",
+                Nama: "bimba",
+                Role: 1
             }
         ];
         const dataDenganNomor = data; //TODO: Tambabhin angka. i=1. For each data, tambahin no: i. i++
-        const rows = data.map(row => (
+        // for (let i = 0; i < dataDenganNomor.length; i++) {
+        //     const count = parseInt(dataDenganNomor[i]);
+        //     //gataulagii
+        // }
+        const rows = data.map((row, idx) => (
             <tr>
-                <td>{row.No + ""}</td>
+                <td>{idx+1}</td>
                 <td>{row.Nama}</td>
                 <td>{row.Role}</td>
                 <td>{row.Username}</td>
                 <td>
                     {/* TODO: Bikin fungsi utk delete */}
-                    <Button href={"delete/" + row.Id} variant="danger">
+                    <Button onClick={this.modalShowHandler} variant="danger">
                         Hapus
                     </Button>
                 </td>
@@ -45,9 +67,25 @@ class DaftarAkun extends Component {
             <React.Fragment>
                 <Content>
                     <Card>
+                        <Modal centered show={this.state.modalShow} onHide={this.modalCloseHandler}>
+                            <Modal.Header closeButton className={classes.modalHeader}></Modal.Header>
+                            <Modal.Body className="mt-n5">
+                                <Row className="justify-content-center mb-3 mt-4">
+                                    Apakah Anda yakin ingin menghapus akun ini?
+                                </Row>
+                                <Row className="justify-content-center mb-3 mt-4">
+                                    <Button onClick={this.delete} variant="primary">
+                                        Ya, Hapus
+                                    </Button>
+                                    <Button onClick={this.modalCloseHandler} variant="light">
+                                        Tidak
+                                    </Button>
+                                </Row>
+                            </Modal.Body>
+                        </Modal>
                         <Breadcrumb>
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/daftarAkun">
+                            <Breadcrumb.Item href="/daftar-akun">
                                 Daftar Akun
                             </Breadcrumb.Item>
                         </Breadcrumb>
