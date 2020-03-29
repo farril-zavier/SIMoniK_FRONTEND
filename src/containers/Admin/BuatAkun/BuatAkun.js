@@ -16,6 +16,7 @@ import classes from "./BuatAkun.module.css";
 class BuatAkun extends Component {
     constructor(props) {
         super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             modalShow: false,
@@ -35,26 +36,46 @@ class BuatAkun extends Component {
         });
     };
 
-    handleSubmit = event => {
+    handleSubmit(event) {
         event.preventDefault();
-    };
+        
+        const data = new FormData(event.target);
+
+        fetch("http://127.0.0.1:8000/api/akun/", {
+            method: "POST",
+            body: data
+        });
+    }
 
     render() {
-        
         return (
             <React.Fragment>
                 <Content>
                     <Card>
-                        <Modal centered show={this.state.modalShow} onHide={this.modalCloseHandler}>
-                            <Modal.Header closeButton className={classes.modalHeader}></Modal.Header>
+                        <Modal
+                            centered
+                            show={this.state.modalShow}
+                            onHide={this.modalCloseHandler}
+                        >
+                            <Modal.Header
+                                closeButton
+                                className={classes.modalHeader}
+                            ></Modal.Header>
                             <Modal.Body className="mt-n5">
                                 <Row className="justify-content-center mb-3 mt-4">
                                     Akun berhasil dibuat!
                                 </Row>
                             </Modal.Body>
                         </Modal>
-                        <Modal centered show={this.state.modalShow} onHide={this.modalCloseHandler}>
-                            <Modal.Header closeButton className={classes.modalHeader}></Modal.Header>
+                        <Modal
+                            centered
+                            show={this.state.modalShow}
+                            onHide={this.modalCloseHandler}
+                        >
+                            <Modal.Header
+                                closeButton
+                                className={classes.modalHeader}
+                            ></Modal.Header>
                             <Modal.Body className="mt-n5">
                                 <Row className="justify-content-center mb-3 mt-4">
                                     Akun gagal dibuat!
@@ -79,13 +100,21 @@ class BuatAkun extends Component {
                                         Username*:
                                     </Form.Label>
                                     <Col sm="4">
-                                    <Form.Control type="text" placeholder="e.g adindahawari" />
+                                        <Form.Control
+                                            name="username"
+                                            type="text"
+                                            placeholder="e.g adindahawari"
+                                        />
                                     </Col>
                                     <Form.Label column sm="2">
                                         Nama*:
                                     </Form.Label>
                                     <Col sm="4">
-                                    <Form.Control type="text" placeholder="e.g Adinda Hawari" />
+                                        <Form.Control
+                                            name="name"
+                                            type="text"
+                                            placeholder="e.g Adinda Hawari"
+                                        />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formUsername">
@@ -93,18 +122,29 @@ class BuatAkun extends Component {
                                         Password*:
                                     </Form.Label>
                                     <Col sm="4">
-                                    <Form.Control type="password" placeholder="********" />
+                                        <Form.Control
+                                            name="password"
+                                            type="password"
+                                            placeholder="********"
+                                        />
                                     </Col>
                                     <Form.Label column sm="2">
                                         Role*:
                                     </Form.Label>
                                     <Col sm="4">
-                                    <Form.Control as="select">
-                                            <option selected>-- Pilih Role --</option>
+                                        {/* TODO: kok gabisa ""role":["Incorrect type. Expected pk value, received str."]" */}
+                                        <Form.Control name="role" as="select">
+                                            <option selected>
+                                                -- Pilih Role --
+                                            </option>
                                             <option>Field Officer</option>
-                                            <option>Area Manager Field Officer</option>
+                                            <option>
+                                                Area Manager Field Officer
+                                            </option>
                                             <option>Data Engineer</option>
-                                            <option>Business Development</option>
+                                            <option>
+                                                Business Development
+                                            </option>
                                         </Form.Control>
                                     </Col>
                                 </Form.Group>
