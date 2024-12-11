@@ -7,6 +7,7 @@ import DaftarAkun from "./containers/Admin/DaftarAkun/DaftarAkun";
 import Produk from "./containers/DataEngineer/Produk/Produk";
 import TambahProduk from "./containers/DataEngineer/Produk/TambahProduk";
 import DetailProduk from "./containers/DataEngineer/Produk/DetailProduk";
+import BuatAkun from "./containers/Admin/BuatAkun/BuatAkun";
 
 const Routes = () => (
     <Switch>
@@ -19,7 +20,9 @@ const Routes = () => (
         <Route exact path="/produk/tambah" component={TambahProduk} />
         <Route exact path="/produk/detail" component={DetailProduk} />
 
-        <Route exact path="/daftarAkun" component={DaftarAkun} />
+        {/* Admin */}
+        <Route exact path="/daftar-akun" component={DaftarAkun} />
+        <Route exact path="/buat-akun" component={BuatAkun} />
     </Switch>
 );
 
